@@ -1,0 +1,12 @@
+services:
+  directus:
+    build: .
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./data.db:/app/data.db
+      - ./.env:/app/.env
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
